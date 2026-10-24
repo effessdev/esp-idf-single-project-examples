@@ -31,5 +31,6 @@
     "--compile-commands-dir=c:\\Users\\fasee\\Temp\\repos\\esp-idf-single-project\\single_project_examples\\build"
   ],
   "idf.flashType": "UART",
-  "idf.port": "COM3"
+  "idf.port": "COM3",
+  "editor.tabSize": 2
 }

@@ -1,7 +1,7 @@
-#include "blink.h"
+#include "hardware_interrupts.h"
 
 void app_main(void) {
   // Change to whatever example you want to run
   // Also make sure to update #include
-  blink_main();
+  hardware_interrupts_main();
 }
