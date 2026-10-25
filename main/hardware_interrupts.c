@@ -14,7 +14,16 @@ static QueueHandle_t gpio_evt_queue = NULL;
 
 static void IRAM_ATTR gpio_isr_handler(void *arg) {
   uint32_t gpio_num = (uint32_t)arg;
+
+  // Instead of xQueueSend(), we use xQueueSendFromISR() which is the
+  // interrupt-safe counterpart of it.
+  // xQueueSend (Task context) can block and wait for a specified timeout if the
+  // queue is currently full.
+  // xQueueSendFromISR (Interrupt context) never blocks. If the queue is full,
+  // it immediately returns errQUEUE_FULL so the ISR can finish quickly.
   xQueueSendFromISR(gpio_evt_queue, &gpio_num, NULL);
+
+  // NOTE: Always use ...FromISR variants of FreeRTOS calls inside ISRs.
 }
 
 void toggle_led() {
