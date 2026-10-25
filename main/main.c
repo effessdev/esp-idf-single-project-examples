@@ -1,7 +1,7 @@
-#include "stack_overflow.h"
+#include "adc_oneshot.h"
 
 void app_main(void) {
   // Change to whatever example you want to run
   // Also make sure to update #include
-  stack_overflow_main();
+  adc_oneshot_main();
 }
